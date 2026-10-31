@@ -72,5 +72,5 @@ Access the dashboard at `http://localhost:8501`.
 ## Author
 **Raghav**
 
-GitHub: https://github.com/techfree1/loan_default_prediction/n
+GitHub: https://github.com/techfree1/loan_default_prediction
 Deployed site:- https://github.com/techfree1/loan_default_prediction
