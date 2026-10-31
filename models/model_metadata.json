@@ -1,0 +1,62 @@
+{
+    "best_model_name": "XGBoost",
+    "roc_auc_pct": 94.83,
+    "optimal_threshold": 0.35,
+    "auc_scores": {
+        "Logistic_Regression": 87.1,
+        "Random_Forest": 92.56,
+        "XGBoost": 94.83
+    },
+    "npa_metrics": {
+        "threshold": 0.35,
+        "baseline_npa_pct": 21.81,
+        "post_model_npa_pct": 6.67,
+        "relative_npa_reduction_pct": 69.43,
+        "defaults_prevented_pct": 74.81,
+        "approval_rate_pct": 82.43
+    },
+    "leaderboard": [
+        {
+            "Model": "Logistic_Regression",
+            "ROC-AUC (%)": 87.1,
+            "PR-AUC (%)": 72.88,
+            "F1-Score": 0.576,
+            "Precision": 0.437,
+            "Recall": 0.844,
+            "Baseline NPA (%)": 21.81,
+            "Post-Model NPA (%)": 5.89,
+            "NPA Reduction (%)": 73.0,
+            "Defaults Caught (%)": 84.38,
+            "Target >=85% AUC Met": "YES",
+            "Target >=30% NPA Red. Met": "YES"
+        },
+        {
+            "Model": "Random_Forest",
+            "ROC-AUC (%)": 92.56,
+            "PR-AUC (%)": 87.17,
+            "F1-Score": 0.748,
+            "Precision": 0.714,
+            "Recall": 0.786,
+            "Baseline NPA (%)": 21.81,
+            "Post-Model NPA (%)": 6.14,
+            "NPA Reduction (%)": 71.84,
+            "Defaults Caught (%)": 78.61,
+            "Target >=85% AUC Met": "YES",
+            "Target >=30% NPA Red. Met": "YES"
+        },
+        {
+            "Model": "XGBoost",
+            "ROC-AUC (%)": 94.83,
+            "PR-AUC (%)": 90.26,
+            "F1-Score": 0.829,
+            "Precision": 0.928,
+            "Recall": 0.748,
+            "Baseline NPA (%)": 21.81,
+            "Post-Model NPA (%)": 6.67,
+            "NPA Reduction (%)": 69.43,
+            "Defaults Caught (%)": 74.81,
+            "Target >=85% AUC Met": "YES",
+            "Target >=30% NPA Red. Met": "YES"
+        }
+    ]
+}

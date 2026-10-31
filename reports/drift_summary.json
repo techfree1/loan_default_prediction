@@ -1,0 +1,74 @@
+{
+    "dataset_drift_detected": true,
+    "drifted_features_count": 5,
+    "total_features_monitored": 8,
+    "drift_share_pct": 62.5,
+    "status": "\u26a0\ufe0f DRIFT ALERT: Retraining Recommended",
+    "html_report_path": "reports/evidently_drift_report.html",
+    "features": [
+        {
+            "feature": "person_age",
+            "reference_mean": 27.837,
+            "current_mean": 28.018,
+            "ks_statistic": 0.031,
+            "p_value": 0.291765,
+            "drift_detected": false
+        },
+        {
+            "feature": "person_income",
+            "reference_mean": 65269.823,
+            "current_mean": 56295.837,
+            "ks_statistic": 0.106,
+            "p_value": 0.0,
+            "drift_detected": true
+        },
+        {
+            "feature": "person_emp_length",
+            "reference_mean": 4.667,
+            "current_mean": 4.803,
+            "ks_statistic": 0.0245,
+            "p_value": 0.585821,
+            "drift_detected": false
+        },
+        {
+            "feature": "loan_amnt",
+            "reference_mean": 9398.25,
+            "current_mean": 11548.714,
+            "ks_statistic": 0.155,
+            "p_value": 0.0,
+            "drift_detected": true
+        },
+        {
+            "feature": "loan_int_rate",
+            "reference_mean": 10.944,
+            "current_mean": 13.773,
+            "ks_statistic": 0.3845,
+            "p_value": 0.0,
+            "drift_detected": true
+        },
+        {
+            "feature": "loan_to_income_ratio",
+            "reference_mean": 0.17,
+            "current_mean": 0.237,
+            "ks_statistic": 0.1965,
+            "p_value": 0.0,
+            "drift_detected": true
+        },
+        {
+            "feature": "interest_burden_ratio",
+            "reference_mean": 0.019,
+            "current_mean": 0.033,
+            "ks_statistic": 0.279,
+            "p_value": 0.0,
+            "drift_detected": true
+        },
+        {
+            "feature": "credit_maturity_ratio",
+            "reference_mean": 0.611,
+            "current_mean": 0.604,
+            "ks_statistic": 0.0225,
+            "p_value": 0.692128,
+            "drift_detected": false
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: loan_risk_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-loan_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-loan_secure_password}
+      POSTGRES_DB: ${POSTGRES_DB:-loan_risk_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U loan_user -d loan_risk_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: loan_risk_api
+    command: ["deploy/entrypoint.sh", "api"]
+    environment:
+      PROJECT_ROOT: /app
+      DATABASE_URL: postgresql://loan_user:loan_secure_password@db:5432/loan_risk_db
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./models:/app/models
+      - ./reports:/app/reports
+      - ./data:/app/data
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: loan_risk_web
+    command: ["deploy/entrypoint.sh", "streamlit"]
+    environment:
+      PROJECT_ROOT: /app
+      API_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    volumes:
+      - ./models:/app/models
+      - ./reports:/app/reports
+      - ./data:/app/data
+
+volumes:
+  postgres_data:
